@@ -21,7 +21,9 @@ public class GoogleSearchTestCase {
         // Navigate to google
         driver.get("https://www.google.com/");
         // Find the search field
-        WebElement inputBox = driver.findElement(By.name("q"));
+        WebElement inputBox = driver.findElement(By.name("w"));
+
+        //When findElement() cannot locate the element NoSuchElementException is thrown
 
 
         //WebElement interface represents an HTML element
