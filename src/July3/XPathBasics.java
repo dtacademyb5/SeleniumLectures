@@ -13,7 +13,7 @@ public class XPathBasics {
     public static void main(String[] args) {
 
 
-        System.setProperty("webdriver.chrome.driver", System.getProperty("os.name").contains("Windows") ? "drivers/chromedriver.exe" : "drivers/chromedriverMac");
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver(); // launches a new browser session
 
