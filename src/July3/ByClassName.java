@@ -10,7 +10,7 @@ public class ByClassName {
     public static void main(String[] args) {
 
 
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("os.name").contains("Windows") ? "drivers/chromedriver.exe" : "drivers/chromedriver");
 
         WebDriver driver = new ChromeDriver(); // launches a new browser session
 
