@@ -11,7 +11,8 @@ public class ClearMethod {
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        System.out.println(System.getProperty("os.name"));
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
 
         WebDriver driver = new ChromeDriver(); // launches a new browser session
 
