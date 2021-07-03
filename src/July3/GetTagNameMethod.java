@@ -15,7 +15,7 @@ public class GetTagNameMethod {
     public static void main(String[] args) {
 
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nuclues\\Documents\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver(); // launches a new browser session
 

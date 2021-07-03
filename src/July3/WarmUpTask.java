@@ -17,7 +17,7 @@ import static org.testng.Assert.assertTrue;
 public class WarmUpTask {
 
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nuclues\\Documents\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
         WebDriver wd = new ChromeDriver(); // launches a new browser session
 

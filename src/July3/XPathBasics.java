@@ -13,7 +13,7 @@ public class XPathBasics {
     public static void main(String[] args) {
 
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nuclues\\Documents\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
         WebDriver driver = new ChromeDriver(); // launches a new browser session
 
@@ -46,11 +46,11 @@ public class XPathBasics {
 
 
         System.out.println(driver.findElement(By.xpath("//a[@class='link-2'][@href='https://duotech.talentlms.com/']")).getText());
-        // multuple attributes
+        // multiple attributes
 
-        System.out.println(driver.findElement(By.xpath("//a[.='Contacts']")).getText());
+        System.out.println(driver.findElement(By.xpath("//a[.='Contacts']")).getText()); // by exact text match
 
-        String containsText = "//p[   contains(    text()  , 'Business Systems Analyst and'    )]";
+        String containsText = "//p[   contains(    text()  , 'Business Systems Analyst and'    )]"; // by partial text match
 
         System.out.println(driver.findElement(By.xpath(containsText)).getText());
 
