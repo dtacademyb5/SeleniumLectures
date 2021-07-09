@@ -7,20 +7,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class VerifyRowInfo {
-
+public class VerifyColumnInfo {
+    static WebDriver driver;
 
     public static void main(String[] args) {
 
-
         System.setProperty("webdriver.chrome.driver", System.getProperty("os.name").contains("Windows") ? "drivers/chromedriver.exe" : "drivers/chromedriver");
 
-        WebDriver driver = new ChromeDriver(); // launches a new browser session
+        driver = new ChromeDriver(); // launches a new browser session
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
@@ -31,20 +29,28 @@ public class VerifyRowInfo {
         driver.findElement(By.xpath("//a[.='View all products']")).click();
 
 
-        List<String> expected = Arrays.asList( "MyMoney", 	"$100",	"8%");
+        List<String> expected = Arrays.asList( "MyMoney", 	"FamilyAlbum",	"ScreenSaver");
 
-//        String text = driver.findElement(By.xpath("//table[@class='ProductsTable']//tr[2]")).getText();
+        List<WebElement> firstColumn = driver.findElements(By.xpath("//table[@class='ProductsTable']//tr//td[1]"));
 
-//        System.out.println(text);
-
-
-        List<WebElement> tds = driver.findElements(By.xpath("//table[@class='ProductsTable']//tr[2]//td"));
-
-        List<String> actual = Utilities.getElementsText(tds);
+        List<String> actual = Utilities.getElementsText(firstColumn);
 
         Assert.assertEquals(actual, expected);
 
 
+        System.out.println(getColumnInfo(2));
+
+        System.out.println(getColumnInfo(3));
+
     }
 
+
+    public static List<String> getColumnInfo(int columnNo){
+
+        List<WebElement> column = driver.findElements(By.xpath("//table[@class='ProductsTable']//tr//td["+columnNo+"]"));
+
+        List<String> strings = Utilities.getElementsText(column);
+
+        return strings;
+    }
 }
