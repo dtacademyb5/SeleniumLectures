@@ -32,23 +32,16 @@ public class WarmUpTask {
         driver.manage().deleteAllCookies();
 
 
-        // Verify the headers of Americas table:
-//        String verifiedHeader = driver.findElement(By.xpath("//tr[@class='data-table-headers']")).getText();
-//        System.out.println("Verified Header Table : "+verifiedHeader);
 
         List<WebElement> elements = driver.findElements(By.xpath("//div[@data-view-uid='1|0_3_3']//tr[@class='data-table-headers']//th"));
-//        List<String> expectedHeaders = Arrays.asList("Name" , "Value", 	"Net Change", "% Change", 	"1 Month", 	"1 Year", 	"Time (EDT)");
+        List<String> expectedHeaders = Arrays.asList("NAME" , "VALUE", 	"NET CHANGE", "% CHANGE", 	"1 MONTH", 	"1 YEAR", 	"TIME (EDT)");
         List<String> actualHeaders = Utilities.getElementsText(elements);
-        System.out.println(actualHeaders);
-//        Assert.assertEquals(actualHeaders, expectedHeaders);
+
+        Assert.assertEquals(actualHeaders, expectedHeaders);
 
         // 3. Verify the first column of the Americas Table:
         List<WebElement> verifyFirstCol = driver.findElements(By.xpath("//div[@data-view-uid='1|0_3_3']//th[@class='data-table-row-cell']//div[@data-type='full']"));
-//        System.out.println(verifyFirstCol.size());
-//        for (WebElement getFirstCol : verifyFirstCol) {
-//            System.out.println(getFirstCol.getText());
 //
-//        }
 
         List<String> expectedCol = Arrays.asList( "DOW JONES INDUS. AVG" ,  "S&P 500 INDEX" ,  "NASDAQ COMPOSITE" ,  "NYSE COMPOSITE INDEX" ,  "S&P/TSX COMPOSITE INDEX" );
 
