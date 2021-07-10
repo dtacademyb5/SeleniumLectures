@@ -1,5 +1,6 @@
 package July8;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -16,5 +17,16 @@ public class Utilities {
             }
         }
         return elemTexts;
+    }
+
+
+    public static void switchToWindow(String title, WebDriver driver){
+
+        for (String windowHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(windowHandle);
+            if(driver.getTitle().equals(title)){
+                break;
+            }
+        }
     }
 }
