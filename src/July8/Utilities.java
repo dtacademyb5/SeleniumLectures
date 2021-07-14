@@ -1,8 +1,11 @@
 package July8;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,5 +31,23 @@ public class Utilities {
                 break;
             }
         }
+    }
+
+
+
+    public static void takeScreenshot(WebDriver driver , String fileName) throws IOException {
+
+        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+        FileInputStream fis = new FileInputStream(file);
+
+        FileOutputStream fos = new FileOutputStream(fileName);
+        int data;
+        while((data = fis.read()) != -1  ){
+            fos.write(data);
+        }
+        fis.close();
+        fos.close();
+
     }
 }
